@@ -1,18 +1,52 @@
 .App {
   text-align: center;
+  margin: 20px 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.container {
+  margin: 0 50px;
 }
 
-.App-link {
-  color: #61dafb;
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 2vw;
+}
+@media only screen and (min-width: 768px) and (max-device-width: 992px) {
+  .grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .container {
+    margin: 0 10px;
+  }
+}
+
+/* Position child elements relative to this element */
+.aspect-ratio-box {
+  position: relative;
+}
+
+/* Create a pseudo element that uses padding-bottom to take up space */
+.aspect-ratio-box::after {
+  display: block;
+  content: "";
+  /* 16:9 aspect ratio */
+  padding-bottom: 56.25%;
+}
+
+/* Image is positioned absolutely relative to the parent element */
+.aspect-ratio-box img {
+  /* Image should match parent box size */
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

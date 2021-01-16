@@ -34,11 +34,15 @@ function App() {
 
   return (
     <div className="App">
-      {data.posts.items.map((item) => (
-        <div key={item.id}>
-          <img src={`${API_URL}${item.thumbnail}`} alt={item.title} />
+      <div className="container">
+        <div className="grid">
+          {data.posts.items.map((post) => (
+            <div className="aspect-ratio-box" key={post.id}>
+              <img src={`${API_URL}${post.thumbnail}`} alt={post.title} />
+            </div>
+          ))}
         </div>
-      ))}
+      </div>
     </div>
   );
 }
